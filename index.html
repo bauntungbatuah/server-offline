@@ -184,39 +184,36 @@
 </audio>
 
 <script>
-const bgMusic = document.getElementById("bg-music");
-bgMusic.volume = 0.6;
+    const bgMusic = document.getElementById("bg-music");
+    bgMusic.volume = 0.6;
 
-function aktifkanAudio() {
-    bgMusic.play().then(() => {
-        console.log("Audio aktif");
-    }).catch(err => {
-        console.log("Gagal:", err);
-    });
-
-    window.removeEventListener("touchend", aktifkanAudio);
-    window.removeEventListener("click", aktifkanAudio);
-}
-
-// Lebih kuat dari pointerdown di mobile
-window.addEventListener("touchend", aktifkanAudio);
-window.addEventListener("click", aktifkanAudio);
-</script>
-    <script>
-const bgMusic = document.getElementById("bg-music");
-
-// Tambahan khusus mobile jika pointerdown gagal
-function forceMobileAudio() {
-    if (bgMusic.paused) {
-        bgMusic.play().catch(() => {});
+    function aktifkanAudio() {
+        // Cek apakah musik sudah bermain, jika belum maka jalankan
+        if (bgMusic.paused) {
+            bgMusic.play().then(() => {
+                console.log("Audio berhasil aktif");
+                // Hapus event listener agar tidak berjalan berulang kali
+                hapusEvent();
+            }).catch(err => {
+                console.log("Menunggu interaksi pengguna:", err);
+            });
+        }
     }
-}
 
-// Khusus sentuhan akhir (lebih kuat di HP)
-window.addEventListener("touchend", forceMobileAudio, { once: true });
+    function hapusEvent() {
+        window.removeEventListener("touchend", aktifkanAudio);
+        window.removeEventListener("click", aktifkanAudio);
+        window.removeEventListener("touchstart", aktifkanAudio);
+    }
+
+    // Menambahkan beberapa event untuk mencakup semua skenario (Mobile & Desktop)
+    window.addEventListener("touchend", aktifkanAudio);
+    window.addEventListener("click", aktifkanAudio);
+    window.addEventListener("touchstart", aktifkanAudio); // Tambahan untuk respon lebih cepat di mobile
 </script>
 </body>
 
 </html>
+
 
 
