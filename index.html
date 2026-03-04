@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desa Banama - Portal Offline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: radial-gradient(circle at top right, #1e293b, #0f172a); 
+            overflow-x: hidden;
+        }
+
+        /* Logo Melayang dengan Animasi Halus */
+        .logo-floating {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto -55px auto; 
+            position: relative;
+            z-index: 50;
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .vektor-dayak {
+            position: absolute;
+            top: -10px;
+            right: -20px;
+            width: 200px; 
+            opacity: 0.15; 
+            pointer-events: none;
+            z-index: 1;
+            filter: invert(1);
+        }
+
+        .header-box { 
+            position: relative; 
+            background: #0f172a; 
+            border-top-left-radius: 2.5rem;
+            border-top-right-radius: 2.5rem;
+            border-bottom: 4px solid #f59e0b;
+        }
+
+        .btn-wa {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <img src="https://sedangdiluar.netlify.app/logo.png" alt="Logo" class="logo-floating object-contain">
+
+    <div class="max-w-md w-full glass-card rounded-[3rem] overflow-hidden relative">
+        
+        <div class="header-box p-10 pt-16 text-center text-white">
+            <img src="https://sedangdiluar.netlify.app/motif.png" alt="Motif Dayak" class="vektor-dayak">
+            
+            <div id="jam-realtime" class="absolute top-6 left-6 text-sm font-bold text-amber-500 opacity-90 tracking-[0.25em] uppercase">00:00:00</div>
+            
+            <div class="relative z-10 mt-2">
+                <h1 class="text-3xl font-extrabold tracking-tighter">DESA BANAMA</h1>
+                <div class="h-1 w-12 bg-amber-500 mx-auto my-3 rounded-full"></div>
+                <p class="text-slate-400 text-[9px] font-semibold tracking-[0.2em] leading-relaxed px-4 uppercase">
+                    Tabe Salamat, Lingu Nalatai.<br>Salam Selamat, Kedamaian Bagi Kita Semua.
+                </p>
+            </div>
+        </div>
+
+        <div class="px-8 -mt-8 relative z-20">
+            <div class="relative w-full h-48 bg-slate-800 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+                <img src="https://sedangdiluar.netlify.app/baliho.jpeg" alt="Baliho Desa" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+        </div>
+
+        <div class="p-10 text-center">
+            <div id="status-label" class="inline-flex items-center px-5 py-2 rounded-full text-[10px] font-extrabold mb-6 uppercase tracking-[0.15em] shadow-sm"></div>
+            
+            <h2 id="sapaan" class="text-slate-900 text-2xl font-black mb-3 tracking-tight"></h2>
+            <p id="pesan-utama" class="text-slate-500 text-sm leading-relaxed mb-8 font-medium px-2"></p>
+
+            <div id="area-countdown" class="hidden mb-8 p-6 bg-amber-50 rounded-[2rem] border border-amber-100 ring-4 ring-amber-50/50">
+                <p class="text-[10px] font-black text-amber-600 uppercase tracking-widest mb-2">Estimasi Server Aktif:</p>
+                <div class="flex justify-center text-slate-900 font-black text-3xl tabular-nums tracking-tighter" id="timer">00:00:00</div>
+            </div>
+
+            <a id="btn-wa" href="#" target="_blank" class="btn-wa flex items-center justify-center text-white py-5 rounded-2xl font-extrabold text-sm uppercase tracking-wider">
+                <i class="fa-brands fa-whatsapp text-2xl mr-3"></i>
+                Layanan Admin Desa
+            </a>
+        </div>
+
+        <div class="py-5 bg-slate-950 text-center">
+            <p class="text-amber-500/80 text-[9px] font-black uppercase tracking-[0.25em] px-4">
+                Adil Ka' Talino, Bacuramin Ka' Saruga, Basengat Ka' Jubata
+            </p>
+        </div>
+    </div>
+
+    <p class="mt-8 text-slate-500 text-[10px] font-bold uppercase tracking-widest">© 2026 Pemerintah Desa Banama</p>
+
+    <script>
+        function updateTampilan() {
+            const sekarang = new Date();
+            const hari = sekarang.getDay();
+            const jam = sekarang.getHours();
+            const menit = sekarang.getMinutes();
+            const waktuSekarang = jam + (menit / 60);
+
+            // Update Jam Digital
+            const opsiJam = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            document.getElementById('jam-realtime').innerText = sekarang.toLocaleTimeString('id-ID') + " WITA";
+
+            // Logika Jam Kerja (Senin-Kamis: 08:00-15:30, Jumat: 08:00-11:00)
+            let isJamKerja = (hari >= 1 && hari <= 4 && waktuSekarang >= 8 && waktuSekarang <= 15.5) || 
+                             (hari === 5 && waktuSekarang >= 8 && waktuSekarang <= 11);
+
+            const statusLabel = document.getElementById('status-label');
+            const countdownArea = document.getElementById('area-countdown');
+            const sapaan = document.getElementById('sapaan');
+            const pesan = document.getElementById('pesan-utama');
+            
+            if (isJamKerja) {
+                statusLabel.className = "inline-flex items-center px-5 py-2 rounded-full text-[10px] font-extrabold mb-6 uppercase tracking-[0.15em] bg-red-50 text-red-600 border border-red-100 shadow-sm";
+                statusLabel.innerHTML = `<span class="w-2 h-2 bg-red-600 rounded-full mr-2 animate-pulse"></span> Gangguan Teknis`;
+                sapaan.innerText = "Mohon Maaf, Pak/Bu";
+                pesan.innerText = "Server desa sedang mengalami gangguan koneksi atau dalam proses pemeliharaan sistem. Untuk memastikan apakah gangguan disebabkan oleh jaringan internet kantor atau pemadaman listrik, silakan hubungi Admin Desa melalui WhatsApp.";
+                countdownArea.classList.add('hidden');
+            } else {
+                statusLabel.className = "inline-flex items-center px-5 py-2 rounded-full text-[10px] font-extrabold mb-6 uppercase tracking-[0.15em] bg-amber-50 text-amber-700 border border-amber-100 shadow-sm";
+                statusLabel.innerHTML = `<span class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span> Akan Aktif Pada Jam Kerja`;
+                sapaan.innerText = "Server Sedang Istirahat";
+                pesan.innerText = "Layanan desa saat ini berada di luar jam operasional. Silakan kembali pada jam kerja atau hubungi Admin Desa melalui WhatsApp untuk keperluan mendesak.";
+                countdownArea.classList.remove('hidden');
+                
+                // Hitung Waktu Mundur ke Jam 8 Pagi Besok
+                let besok = new Date();
+                besok.setHours(8, 0, 0, 0);
+                if (sekarang >= besok) besok.setDate(besok.getDate() + 1);
+                
+                // Lewati Sabtu & Minggu
+                while (besok.getDay() === 0 || besok.getDay() === 6) {
+                    besok.setDate(besok.getDate() + 1);
+                }
+
+                const selisih = besok - sekarang;
+                const h = Math.floor(selisih / (1000 * 60 * 60));
+                const m = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((selisih % (1000 * 60)) / 1000);
+                document.getElementById('timer').innerText = 
+                    `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            }
+
+            document.getElementById('btn-wa').href = `https://wa.me/6285248555550?text=Halo Admin Desa Banama, saya perlu bantuan layanan desa.`;
+        }
+
+        setInterval(updateTampilan, 1000);
+        updateTampilan();
+    </script>
+<audio id="bg-music" loop playsinline>
+    <source src="https://sedangdiluar.netlify.app/audio.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const bgMusic = document.getElementById("bg-music");
+
+// set volume awal
+bgMusic.volume = 0.6;
+
+function aktifkanSekali() {
+    bgMusic.play().catch(() => {});
+    
+    // Hapus semua event supaya tidak bisa trigger lagi
+    document.removeEventListener("pointerdown", aktifkanSekali);
+}
+
+// Trigger saat sentuhan / klik pertama
+document.addEventListener("pointerdown", aktifkanSekali);
+</script>
+</body>
+</html>
