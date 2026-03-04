@@ -185,21 +185,24 @@
 
 <script>
 const bgMusic = document.getElementById("bg-music");
-
-// Set volume awal
 bgMusic.volume = 0.6;
 
-// Fungsi aktifkan audio
 function aktifkanAudio() {
-    bgMusic.play().catch(() => {});
-    
-    // Hapus event supaya hanya jalan sekali
-    window.removeEventListener("pointerdown", aktifkanAudio);
+    bgMusic.play().then(() => {
+        console.log("Audio aktif");
+    }).catch(err => {
+        console.log("Gagal:", err);
+    });
+
+    window.removeEventListener("touchend", aktifkanAudio);
+    window.removeEventListener("click", aktifkanAudio);
 }
 
-// Trigger sentuhan / klik pertama (HP & PC)
-window.addEventListener("pointerdown", aktifkanAudio);
+// Lebih kuat dari pointerdown di mobile
+window.addEventListener("touchend", aktifkanAudio);
+window.addEventListener("click", aktifkanAudio);
 </script>
 </body>
 
 </html>
+
