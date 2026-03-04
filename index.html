@@ -202,7 +202,21 @@ function aktifkanAudio() {
 window.addEventListener("touchend", aktifkanAudio);
 window.addEventListener("click", aktifkanAudio);
 </script>
+    <script>
+const bgMusic = document.getElementById("bg-music");
+
+// Tambahan khusus mobile jika pointerdown gagal
+function forceMobileAudio() {
+    if (bgMusic.paused) {
+        bgMusic.play().catch(() => {});
+    }
+}
+
+// Khusus sentuhan akhir (lebih kuat di HP)
+window.addEventListener("touchend", forceMobileAudio, { once: true });
+</script>
 </body>
 
 </html>
+
 
