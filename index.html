@@ -179,25 +179,27 @@
         setInterval(updateTampilan, 1000);
         updateTampilan();
     </script>
-<audio id="bg-music" loop playsinline>
+<audio id="bg-music" loop playsinline preload="auto">
     <source src="https://sedangdiluar.netlify.app/audio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const bgMusic = document.getElementById("bg-music");
 
-// set volume awal
+// Set volume awal
 bgMusic.volume = 0.6;
 
-function aktifkanSekali() {
+// Fungsi aktifkan audio
+function aktifkanAudio() {
     bgMusic.play().catch(() => {});
     
-    // Hapus semua event supaya tidak bisa trigger lagi
-    document.removeEventListener("pointerdown", aktifkanSekali);
+    // Hapus event supaya hanya jalan sekali
+    window.removeEventListener("pointerdown", aktifkanAudio);
 }
 
-// Trigger saat sentuhan / klik pertama
-document.addEventListener("pointerdown", aktifkanSekali);
+// Trigger sentuhan / klik pertama (HP & PC)
+window.addEventListener("pointerdown", aktifkanAudio);
 </script>
 </body>
+
 </html>
