@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
 
@@ -15,37 +14,22 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<link rel="stylesheet"
-href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-
 </head>
 
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
 
-<!-- LOGO -->
-
-<img
-src="assets/img/logo.png"
-alt="Logo"
-class="logo-floating object-contain">
-
-<!-- CARD UTAMA -->
+<img src="assets/img/logo.png" class="logo-floating">
 
 <div class="max-w-md w-full glass-card rounded-[3rem] overflow-hidden relative">
 
 <div class="header-box p-10 pt-16 text-center text-white">
 
-<img
-src="assets/img/motif.png"
-alt="Motif Dayak"
-class="vektor-dayak">
+<img src="assets/img/motif.png" class="vektor-dayak">
 
 <div id="jam-realtime"
-class="absolute top-6 left-6 text-sm font-bold text-amber-500 opacity-90 tracking-[0.25em] uppercase">
+class="absolute top-6 left-6 text-sm font-bold text-amber-500">
 00:00:00
 </div>
-
-<div class="relative z-10 mt-2">
 
 <h1 class="text-3xl font-extrabold tracking-tighter">
 DESA BANAMA
@@ -53,135 +37,29 @@ DESA BANAMA
 
 <div class="h-1 w-12 bg-amber-500 mx-auto my-3 rounded-full"></div>
 
-<p class="text-slate-400 text-[9px] font-semibold tracking-[0.2em] leading-relaxed px-4 uppercase">
-
+<p class="text-slate-400 text-[9px] font-semibold uppercase">
 Tabe Salamat, Lingu Nalatai.<br>
 Salam Selamat, Kedamaian Bagi Kita Semua.
-
 </p>
 
 </div>
-
-</div>
-
-<!-- BALIHO -->
 
 <div class="px-8 -mt-8 relative z-20">
 
-<div
-class="relative w-full h-48 bg-slate-800 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+<div class="relative w-full h-48 bg-slate-800 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
 
-<img
-src="assets/img/baliho.jpeg"
-class="w-full h-full object-cover">
-
-<div
-class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<img src="assets/img/baliho.jpeg" class="w-full h-full object-cover">
 
 </div>
 
 </div>
-
-<!-- KONTEN -->
 
 <div class="p-10 text-center">
 
-<div id="status-label"
-class="inline-flex items-center px-5 py-2 rounded-full text-[10px] font-extrabold mb-6 uppercase tracking-[0.15em] shadow-sm">
-</div>
-
-<!-- TOMBOL MASUK SID -->
-
-<a
-href="#"
-onclick="bukaSID(event)"
-class="mt-4 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white py-5 rounded-2xl font-extrabold text-sm uppercase tracking-wider transition">
-
-<i class="fa-solid fa-globe mr-3"></i>
-Masuk Sistem Desa
-
-</a>
-
-<!-- MENU WEBSITE + LOGIN -->
-
-<div id="menu-sid" class="hidden mt-6 space-y-3">
-
-<a
-href="https://banama.my.id"
+<a id="btn-wa"
+href="https://wa.me/6285248555550"
 target="_blank"
-class="block bg-slate-800 hover:bg-slate-700 text-white py-4 rounded-xl font-bold text-center">
-
-🌐 Buka Website Desa
-
-</a>
-
-<button
-onclick="bukaMenuLogin()"
-class="w-full bg-amber-500 hover:bg-amber-400 text-white py-4 rounded-xl font-bold">
-
-🔐 Login
-
-</button>
-
-</div>
-
-<!-- MENU LOGIN -->
-
-<div id="menu-login" class="hidden mt-4 space-y-3">
-
-<a
-href="https://desa.banama.my.id/siteman"
-target="_blank"
-class="block bg-red-600 hover:bg-red-500 text-white py-4 rounded-xl font-bold text-center">
-
-👨‍💻 Login Admin
-
-</a>
-
-<a
-href="https://desa.banama.my.id/layanan"
-target="_blank"
-class="block bg-green-600 hover:bg-green-500 text-white py-4 rounded-xl font-bold text-center">
-
-👥 Login Warga
-
-</a>
-
-</div>
-
-<h2 id="sapaan"
-class="text-slate-900 text-2xl font-black mb-3 tracking-tight"></h2>
-
-<p id="pesan-utama"
-class="text-slate-500 text-sm leading-relaxed mb-8 font-medium px-2"></p>
-
-<div id="area-countdown"
-class="hidden mb-8 p-6 bg-amber-50 rounded-[2rem] border border-amber-100 ring-4 ring-amber-50/50">
-
-<p
-class="text-[10px] font-black text-amber-600 uppercase tracking-widest mb-2">
-
-Estimasi Server Aktif:
-
-</p>
-
-<div
-class="flex justify-center text-slate-900 font-black text-3xl tabular-nums tracking-tighter"
-id="timer">
-
-00:00:00
-
-</div>
-
-</div>
-
-<!-- WHATSAPP -->
-
-<a
-id="btn-wa"
-href="https://wa.me/6285248555550?text=Halo Admin Desa Banama, saya perlu bantuan layanan desa."
-target="_blank"
-class="btn-wa flex items-center justify-center text-white py-5 rounded-2xl font-extrabold text-sm uppercase tracking-wider">
+class="btn-wa flex items-center justify-center text-white py-5 rounded-2xl font-extrabold">
 
 <i class="fa-brands fa-whatsapp text-2xl mr-3"></i>
 Layanan Admin Desa
@@ -190,61 +68,35 @@ Layanan Admin Desa
 
 </div>
 
-<div class="py-5 bg-slate-950 text-center">
-
-<p
-class="text-amber-500/80 text-[9px] font-black uppercase tracking-[0.25em] px-4">
-
-Adil Ka' Talino, Bacuramin Ka' Saruga, Basengat Ka' Jubata
-
-</p>
-
 </div>
 
-</div>
-
-<p
-class="mt-8 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
-
+<p class="mt-8 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
 © 2026 Pemerintah Desa Banama
-
 </p>
 
-<!-- AREA COMPONENT -->
 
-<div id="status-server"></div>
-<div id="cuaca"></div>
-<div id="cctv"></div>
-<div id="peta"></div>
-<div id="banner"></div>
-<div id="berita"></div>
+<!-- ============================= -->
+<!-- SECTION AMBULANCE -->
+<!-- ============================= -->
+
 <div id="ambulance-section">
 
 <div id="ambulance-train">
 
-<div class="ambulance-body relative">
-
 <img src="assets/img/ambulance.png" id="ambulance-car">
 
-<div id="ambulance-light"></div>
+<div id="ambulance-card">
 
-</div>
+<h2>🚑 Layanan Ambulans Desa</h2>
 
-<div id="ambulance-article">
-
-<h2 class="text-xl font-bold mb-2">
-🚑 Layanan Ambulans Desa
-</h2>
-
-<p class="text-slate-600 mb-4">
-Berkat doa orang sakampungan kawa tarus.  
+<p>
+Berkat doa orang sakampungan kawa tarus.<br>
 Mun kada auran hubungi supir ambulans.
 </p>
 
 <a
 href="https://wa.me/6285248555550?text=Halo%20Supir%20Ambulans%20Desa%20Banama,%20kami%20memerlukan%20bantuan%20ambulans."
-target="_blank"
-class="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg font-bold">
+target="_blank">
 
 🚑 Hubungi Supir Ambulans  
 085248555550
@@ -255,37 +107,11 @@ class="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg font-bold
 
 </div>
 
-<div id="road-shadow"></div>
+</div>
 
-</div>  
-  
-<!-- SCRIPT -->
 
 <script src="js/main.js"></script>
-
-<script src="js/server.js"></script>
-
-<script src="js/cuaca.js"></script>
-
-<script src="js/berita.js"></script>
-
-<script src="js/scroll.js"></script>
-
 <script src="js/ambulance.js"></script>
-
-<script src="js/audio.js"></script>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-AOS.init({
-duration:1000,
-once:true
-});
-</script>
 
 </body>
 </html>
-
-
-
