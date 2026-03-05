@@ -1,197 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-
 body{
-font-family:'Plus Jakarta Sans',sans-serif;
+font-family:sans-serif;
 background:radial-gradient(circle at top right,#1e293b,#0f172a);
 overflow-x:hidden;
 }
 
-/* LOGO MELAYANG */
+/* LOGO */
 
 .logo-floating{
 width:110px;
-height:110px;
 margin:0 auto -55px auto;
-position:relative;
-z-index:50;
-filter:drop-shadow(0 15px 25px rgba(0,0,0,0.6));
 animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
-
-0%,100%{
-transform:translateY(0);
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
 }
-/* ===== SECTION AMBULANCE ===== */
+
+/* CARD */
+
+.glass-card{
+background:white;
+border-radius:40px;
+box-shadow:0 25px 50px rgba(0,0,0,0.4);
+}
+
+.header-box{
+background:#0f172a;
+border-bottom:4px solid #f59e0b;
+}
+
+.vektor-dayak{
+position:absolute;
+top:-10px;
+right:-20px;
+width:200px;
+opacity:0.15;
+}
+
+/* WHATSAPP */
+
+.btn-wa{
+background:linear-gradient(45deg,#25D366,#128C7E);
+}
+
+
+/* ===================== */
+/* AMBULANCE SECTION */
+/* ===================== */
 
 #ambulance-section{
 width:100%;
+height:280px;
 position:relative;
 overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:300px;
+margin-top:120px;
 }
 
-/* kendaraan + artikel */
 #ambulance-train{
 position:absolute;
-left:-700px;
+left:-900px;
 top:50%;
 transform:translateY(-50%);
 display:flex;
 align-items:center;
-gap:20px;
-transition:left 4s cubic-bezier(.25,.8,.25,1);
+gap:30px;
 }
 
-/* gambar ambulans */
+/* ambulance */
+
 #ambulance-car{
-width:420px;
-max-width:90vw;
+width:260px;
+max-width:60vw;
 }
 
-/* artikel layanan */
-#ambulance-article{
+/* artikel */
+
+#ambulance-card{
 background:white;
-padding:20px;
+padding:28px;
 border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-max-width:320px;
-transition:transform 0.6s ease;
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
+max-width:420px;
 }
 
-/* tombol ambulans */
-#ambulance-article a{
-display:inline-block;
-margin-top:10px;
-}
-50%{
-transform:translateY(-10px);
-}
-
-}
-
-/* GLASS CARD */
-
-.glass-card{
-
-background:rgba(255,255,255,0.98);
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,0.3);
-
-box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);
-
-}
-
-/* MOTIF DAYAK */
-
-.vektor-dayak{
-
-position:absolute;
-
-top:-10px;
-
-right:-20px;
-
-width:200px;
-
-opacity:0.15;
-
-pointer-events:none;
-
-z-index:1;
-
-filter:invert(1);
-
-}
-
-/* HEADER */
-
-.header-box{
-
-position:relative;
-
-background:#0f172a;
-
-border-top-left-radius:2.5rem;
-
-border-top-right-radius:2.5rem;
-
-border-bottom:4px solid #f59e0b;
-
-}
-
-/* BUTTON WHATSAPP */
-
-.btn-wa{
-
-background:linear-gradient(45deg,#25D366,#128C7E);
-
-transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
-
-}
-
-.btn-wa:hover{
-
-transform:translateY(-3px);
-
-box-shadow:0 10px 20px rgba(37,211,102,0.3);
-
-}
-
-/* AREA SECTION PORTAL TAMBAHAN */
-
-.section-portal{
-
-max-width:900px;
-
-margin:80px auto;
-
-padding:40px;
-
-border-radius:30px;
-
-background:rgba(255,255,255,0.95);
-
-box-shadow:0 25px 50px rgba(0,0,0,0.4);
-
-}
-
-/* JUDUL SECTION */
-
-.section-title{
-
-font-size:26px;
-
+#ambulance-card h2{
+font-size:22px;
 font-weight:800;
-
-margin-bottom:20px;
-
-text-align:center;
-
+margin-bottom:10px;
 }
 
-/* AREA BERITA */
-
-.berita-item{
-
-padding:10px 0;
-
-border-bottom:1px solid #eee;
-
+#ambulance-card p{
+color:#555;
+margin-bottom:14px;
+line-height:1.5;
 }
 
-.berita-item:last-child{
-
-border:none;
-
+#ambulance-card a{
+background:#16a34a;
+color:white;
+padding:10px 16px;
+border-radius:10px;
+font-weight:700;
+display:inline-block;
 }
-.ambulance-body{
-position:relative;
-display:flex;
-align-items:center;
+
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+#ambulance-car{
+width:180px;
+}
+
+#ambulance-card{
+max-width:260px;
+font-size:14px;
+}
+
 }
