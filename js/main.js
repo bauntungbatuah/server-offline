@@ -31,4 +31,5 @@ loadComponent("peta", "components/peta.html")
 
 loadComponent("banner", "components/banner.html")
 
+
 loadComponent("berita", "components/berita.html")
