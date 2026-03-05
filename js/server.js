@@ -1,6 +1,8 @@
 const SERVER_URL = "https://desa.banama.my.id"
 
 
+/* CEK SERVER DESA */
+
 async function cekServerDesa(){
 
 try{
@@ -28,6 +30,8 @@ return false
 
 
 
+/* TOMBOL MASUK SISTEM DESA */
+
 async function bukaSID(e){
 
 e.preventDefault()
@@ -38,7 +42,9 @@ if(online){
 
 const menu = document.getElementById("menu-sid")
 
+if(menu){
 menu.classList.toggle("hidden")
+}
 
 return
 
@@ -83,10 +89,14 @@ document.getElementById("pesan-utama").innerText =
 
 
 
+/* MENU LOGIN */
+
 function bukaMenuLogin(){
 
 const menu = document.getElementById("menu-login")
 
+if(menu){
 menu.classList.toggle("hidden")
+}
 
 }
