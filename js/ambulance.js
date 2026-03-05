@@ -75,4 +75,5 @@ pesan.style.opacity = "0"
 
 window.addEventListener("scroll", munculAmbulance)
 
+
 })
