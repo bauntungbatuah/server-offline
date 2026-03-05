@@ -1,94 +1,41 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Desa Banama - Portal Offline</title>
+<title>Desa Banama - Portal</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<!-- Animasi Scroll -->
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<link rel="stylesheet" href="css/style.css">
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-body{
-font-family:'Plus Jakarta Sans',sans-serif;
-background:radial-gradient(circle at top right,#1e293b,#0f172a);
-overflow-x:hidden;
-}
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 
-/* Logo Melayang */
-.logo-floating{
-width:110px;
-height:110px;
-margin:0 auto -55px auto;
-position:relative;
-z-index:50;
-filter:drop-shadow(0 15px 25px rgba(0,0,0,0.6));
-animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-}
-
-.glass-card{
-background:rgba(255,255,255,0.98);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,0.3);
-box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);
-}
-
-.vektor-dayak{
-position:absolute;
-top:-10px;
-right:-20px;
-width:200px;
-opacity:0.15;
-pointer-events:none;
-z-index:1;
-filter:invert(1);
-}
-
-.header-box{
-position:relative;
-background:#0f172a;
-border-top-left-radius:2.5rem;
-border-top-right-radius:2.5rem;
-border-bottom:4px solid #f59e0b;
-}
-
-.btn-wa{
-background:linear-gradient(45deg,#25D366,#128C7E);
-transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
-}
-
-.btn-wa:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 20px rgba(37,211,102,0.3);
-}
-</style>
 </head>
 
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
 
-<!-- Logo -->
-<img data-aos="zoom-in"
-src="https://sedangdiluar.netlify.app/logo.png"
+<!-- LOGO -->
+
+<img
+src="assets/img/logo.png"
 alt="Logo"
 class="logo-floating object-contain">
 
-<div data-aos="fade-up" class="max-w-md w-full glass-card rounded-[3rem] overflow-hidden relative">
+<!-- CARD UTAMA -->
 
-<!-- Header -->
-<div data-aos="fade-down" class="header-box p-10 pt-16 text-center text-white">
+<div class="max-w-md w-full glass-card rounded-[3rem] overflow-hidden relative">
 
-<img src="https://sedangdiluar.netlify.app/motif.png"
+<div class="header-box p-10 pt-16 text-center text-white">
+
+<img
+src="assets/img/motif.png"
 alt="Motif Dayak"
 class="vektor-dayak">
 
@@ -106,35 +53,44 @@ DESA BANAMA
 <div class="h-1 w-12 bg-amber-500 mx-auto my-3 rounded-full"></div>
 
 <p class="text-slate-400 text-[9px] font-semibold tracking-[0.2em] leading-relaxed px-4 uppercase">
+
 Tabe Salamat, Lingu Nalatai.<br>
 Salam Selamat, Kedamaian Bagi Kita Semua.
+
 </p>
 
 </div>
+
 </div>
 
-<!-- Baliho -->
-<div data-aos="fade-up" class="px-8 -mt-8 relative z-20">
+<!-- BALIHO -->
 
-<div class="relative w-full h-48 bg-slate-800 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+<div class="px-8 -mt-8 relative z-20">
 
-<img src="https://sedangdiluar.netlify.app/baliho.jpeg"
-alt="Baliho Desa"
+<div
+class="relative w-full h-48 bg-slate-800 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+
+<img
+src="assets/img/baliho.jpeg"
 class="w-full h-full object-cover">
 
-<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div
+class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
 </div>
+
 </div>
 
-<!-- Konten -->
-<div data-aos="fade-up" class="p-10 text-center">
+<!-- KONTEN -->
+
+<div class="p-10 text-center">
 
 <div id="status-label"
 class="inline-flex items-center px-5 py-2 rounded-full text-[10px] font-extrabold mb-6 uppercase tracking-[0.15em] shadow-sm">
 </div>
 
-<a href="#"
+<a
+href="#"
 onclick="bukaSID(event)"
 class="mt-4 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white py-5 rounded-2xl font-extrabold text-sm uppercase tracking-wider transition">
 
@@ -152,18 +108,25 @@ class="text-slate-500 text-sm leading-relaxed mb-8 font-medium px-2"></p>
 <div id="area-countdown"
 class="hidden mb-8 p-6 bg-amber-50 rounded-[2rem] border border-amber-100 ring-4 ring-amber-50/50">
 
-<p class="text-[10px] font-black text-amber-600 uppercase tracking-widest mb-2">
+<p
+class="text-[10px] font-black text-amber-600 uppercase tracking-widest mb-2">
+
 Estimasi Server Aktif:
+
 </p>
 
-<div class="flex justify-center text-slate-900 font-black text-3xl tabular-nums tracking-tighter"
+<div
+class="flex justify-center text-slate-900 font-black text-3xl tabular-nums tracking-tighter"
 id="timer">
+
 00:00:00
-</div>
 
 </div>
 
-<a id="btn-wa"
+</div>
+
+<a
+id="btn-wa"
 href="#"
 target="_blank"
 class="btn-wa flex items-center justify-center text-white py-5 rounded-2xl font-extrabold text-sm uppercase tracking-wider">
@@ -175,29 +138,64 @@ Layanan Admin Desa
 
 </div>
 
-<!-- Footer -->
-<div data-aos="fade-up" class="py-5 bg-slate-950 text-center">
+<div class="py-5 bg-slate-950 text-center">
 
-<p class="text-amber-500/80 text-[9px] font-black uppercase tracking-[0.25em] px-4">
+<p
+class="text-amber-500/80 text-[9px] font-black uppercase tracking-[0.25em] px-4">
+
 Adil Ka' Talino, Bacuramin Ka' Saruga, Basengat Ka' Jubata
+
 </p>
 
 </div>
 
 </div>
 
-<p class="mt-8 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
+<p
+class="mt-8 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
+
 © 2026 Pemerintah Desa Banama
+
 </p>
 
-<!-- Animasi Scroll Script -->
+<!-- AREA COMPONENT -->
+
+<div id="status-server"></div>
+
+<div id="cuaca"></div>
+
+<div id="cctv"></div>
+
+<div id="peta"></div>
+
+<div id="banner"></div>
+
+<div id="berita"></div>
+
+<!-- AUDIO -->
+
+<audio id="bg-music" loop playsinline preload="auto">
+
+<source src="assets/audio/audio.mp3" type="audio/mpeg">
+
+</audio>
+
+<!-- SCRIPT -->
+
+<script src="js/main.js"></script>
+
+<script src="js/server.js"></script>
+
+<script src="js/scroll.js"></script>
+
+<script src="js/audio.js"></script>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
 AOS.init({
 duration:1000,
-once:true,
-offset:80
+once:true
 });
 </script>
 
