@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 
@@ -89,6 +90,8 @@ class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 class="inline-flex items-center px-5 py-2 rounded-full text-[10px] font-extrabold mb-6 uppercase tracking-[0.15em] shadow-sm">
 </div>
 
+<!-- TOMBOL MASUK SID -->
+
 <a
 href="#"
 onclick="bukaSID(event)"
@@ -96,12 +99,17 @@ class="mt-4 flex items-center justify-center bg-slate-900 hover:bg-slate-800 tex
 
 <i class="fa-solid fa-globe mr-3"></i>
 Masuk Sistem Desa
+
+</a>
+
+<!-- MENU WEBSITE + LOGIN -->
+
 <div id="menu-sid" class="hidden mt-6 space-y-3">
 
 <a
 href="https://banama.my.id"
 target="_blank"
-class="block bg-slate-800 hover:bg-slate-700 text-white py-4 rounded-xl font-bold">
+class="block bg-slate-800 hover:bg-slate-700 text-white py-4 rounded-xl font-bold text-center">
 
 🌐 Buka Website Desa
 
@@ -117,13 +125,14 @@ class="w-full bg-amber-500 hover:bg-amber-400 text-white py-4 rounded-xl font-bo
 
 </div>
 
+<!-- MENU LOGIN -->
 
 <div id="menu-login" class="hidden mt-4 space-y-3">
 
 <a
 href="https://desa.banama.my.id/siteman"
 target="_blank"
-class="block bg-red-600 hover:bg-red-500 text-white py-4 rounded-xl font-bold">
+class="block bg-red-600 hover:bg-red-500 text-white py-4 rounded-xl font-bold text-center">
 
 👨‍💻 Login Admin
 
@@ -132,14 +141,13 @@ class="block bg-red-600 hover:bg-red-500 text-white py-4 rounded-xl font-bold">
 <a
 href="https://desa.banama.my.id/layanan"
 target="_blank"
-class="block bg-green-600 hover:bg-green-500 text-white py-4 rounded-xl font-bold">
+class="block bg-green-600 hover:bg-green-500 text-white py-4 rounded-xl font-bold text-center">
 
 👥 Login Warga
 
 </a>
 
 </div>
-</a>
 
 <h2 id="sapaan"
 class="text-slate-900 text-2xl font-black mb-3 tracking-tight"></h2>
@@ -167,9 +175,11 @@ id="timer">
 
 </div>
 
+<!-- WHATSAPP -->
+
 <a
 id="btn-wa"
-href="#"
+href="https://wa.me/6285248555550?text=Halo Admin Desa Banama, saya perlu bantuan layanan desa."
 target="_blank"
 class="btn-wa flex items-center justify-center text-white py-5 rounded-2xl font-extrabold text-sm uppercase tracking-wider">
 
@@ -203,33 +213,53 @@ class="mt-8 text-slate-500 text-[10px] font-bold uppercase tracking-widest">
 <!-- AREA COMPONENT -->
 
 <div id="status-server"></div>
-
 <div id="cuaca"></div>
-
 <div id="cctv"></div>
-
 <div id="peta"></div>
-
 <div id="banner"></div>
-
 <div id="berita"></div>
+<div id="ambulance-section" class="py-24 text-center">
 
+<h2 class="text-2xl font-bold text-slate-800 mb-4">
+🚑 Layanan Ambulans Desa
+</h2>
+
+<p class="text-slate-600 mb-6 leading-relaxed">
+Berkat doa orang sakampungan, kawa tarus.
+Mun kada auran, hubungi supir ambulans.
+</p>
+
+<a
+href="https://wa.me/6285248555550?text=Halo%20Supir%20Ambulans%20Desa%20Banama,%20kami%20memerlukan%20bantuan%20ambulans.%0A%0ANama:%20%0AAlamat:%20%0AKondisi:%20"
+target="_blank"
+class="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-xl font-bold inline-block">
+
+🚑 Hubungi Supir Ambulans  
+085248555550
+
+</a>
+
+</div>
 <!-- AUDIO -->
 
 <audio id="bg-music" loop playsinline preload="auto">
-
 <source src="assets/audio/audio.mp3" type="audio/mpeg">
-
 </audio>
 
 <!-- SCRIPT -->
 
 <script src="js/main.js"></script>
+
 <script src="js/server.js"></script>
+
 <script src="js/cuaca.js"></script>
+
 <script src="js/berita.js"></script>
+
 <script src="js/scroll.js"></script>
+
 <script src="js/ambulance.js"></script>
+
 <script src="js/audio.js"></script>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -243,4 +273,3 @@ once:true
 
 </body>
 </html>
-
