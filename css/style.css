@@ -190,3 +190,8 @@ border-bottom:1px solid #eee;
 border:none;
 
 }
+.ambulance-body{
+position:relative;
+display:flex;
+align-items:center;
+}
