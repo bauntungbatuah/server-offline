@@ -97,7 +97,13 @@
 
         <div class="p-10 text-center">
             <div id="status-label" class="inline-flex items-center px-5 py-2 rounded-full text-[10px] font-extrabold mb-6 uppercase tracking-[0.15em] shadow-sm"></div>
-            
+            <a href="#" onclick="bukaSID(event)"
+class="mt-4 flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white py-5 rounded-2xl font-extrabold text-sm uppercase tracking-wider transition">
+
+<i class="fa-solid fa-globe mr-3"></i>
+Masuk Sistem Desa
+
+</a>
             <h2 id="sapaan" class="text-slate-900 text-2xl font-black mb-3 tracking-tight"></h2>
             <p id="pesan-utama" class="text-slate-500 text-sm leading-relaxed mb-8 font-medium px-2"></p>
 
@@ -218,9 +224,46 @@ Masuk Sistem Desa
     window.addEventListener("click", aktifkanAudio);
     window.addEventListener("touchstart", aktifkanAudio); // Tambahan untuk respon lebih cepat di mobile
 </script>
+    <script>
+async function bukaSID(e){
+    e.preventDefault();
+
+    const url = "https://desa.banama.my.id";
+
+    try{
+        const controller = new AbortController();
+        const timeout = setTimeout(()=>controller.abort(),3000);
+
+        await fetch(url,{mode:"no-cors",signal:controller.signal});
+
+        clearTimeout(timeout);
+
+        window.location.href = url;
+        return;
+
+    }catch(err){}
+
+    const sekarang = new Date();
+    const hari = sekarang.getDay();
+    const jam = sekarang.getHours();
+    const menit = sekarang.getMinutes();
+    const waktu = jam + menit/60;
+
+    const jamKerja =
+        (hari>=1 && hari<=4 && waktu>=8 && waktu<=15.5) ||
+        (hari==5 && waktu>=8 && waktu<=11);
+
+    if(!jamKerja){
+        alert("Layanan desa sedang di luar jam operasional.");
+    }else{
+        alert("Server desa atau koneksi sedang mengalami gangguan.");
+    }
+}
+</script>
 </body>
 
 </html>
+
 
 
 
