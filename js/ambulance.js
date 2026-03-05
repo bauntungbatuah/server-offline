@@ -76,3 +76,54 @@ pesan.style.opacity = "0"
 window.addEventListener("scroll", munculAmbulance)
 
 })
+const train = document.getElementById("ambulance-train")
+
+const sirine = new Audio("assets/audio/sirine.mp3")
+
+let started=false
+
+function jalanAmbulance(){
+
+train.style.transition="none"
+train.style.left="-700px"
+
+setTimeout(()=>{
+
+sirine.currentTime=0
+sirine.volume=0.25
+sirine.play()
+
+train.style.transition="left 4s cubic-bezier(.25,.8,.25,1)"
+train.style.left="50%"
+
+},100)
+
+setTimeout(()=>{
+
+train.style.left="110%"
+
+},2600)
+
+}
+
+function cekScroll(){
+
+if(started) return
+
+const section=document
+.getElementById("ambulance-section")
+.getBoundingClientRect()
+
+if(section.top < window.innerHeight-100){
+
+started=true
+
+jalanAmbulance()
+
+setInterval(jalanAmbulance,30000)
+
+}
+
+}
+
+window.addEventListener("scroll",cekScroll)
