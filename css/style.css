@@ -23,7 +23,51 @@ animation:float 4s ease-in-out infinite;
 0%,100%{
 transform:translateY(0);
 }
+/* ===== SECTION AMBULANCE ===== */
 
+#ambulance-section{
+width:100%;
+position:relative;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:300px;
+}
+
+/* kendaraan + artikel */
+#ambulance-train{
+position:absolute;
+left:-700px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+align-items:center;
+gap:20px;
+transition:left 4s cubic-bezier(.25,.8,.25,1);
+}
+
+/* gambar ambulans */
+#ambulance-car{
+width:420px;
+max-width:90vw;
+}
+
+/* artikel layanan */
+#ambulance-article{
+background:white;
+padding:20px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+max-width:320px;
+transition:transform 0.6s ease;
+}
+
+/* tombol ambulans */
+#ambulance-article a{
+display:inline-block;
+margin-top:10px;
+}
 50%{
 transform:translateY(-10px);
 }
